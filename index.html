@@ -20,23 +20,32 @@
 <body>
 
     <main>
-        <div class="container">
+        <div class="container my-5">
             <div class="row">
-                <div class="col-4">
-                    <div class="mb-3">
-                        <label for="email-user" class="form-label">Inserisci E-mail da verificare</label>
-                        <input type="email" class="form-control" id="email-user">
-                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    </div>
+                <div class="col-12">
+                    <h1 class="text-center pb-2">Verifica se la tua E-mail è presente nei nostri sistemi</h1>
                 </div>
                 <div class="col-12">
+                    <label for="email-user" class="form-label">Inserisci E-mail da verificare</label>
+                </div>
+                <div class="col-4 d-flex">
+                    <input type="email" class="form-control me-2" id="email-user">
+                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                </div>
+                <div class="col-12 mt-5">
                     <div class="alert d-none" id="output-message" role="alert">
                         <!-- Qui visualizzo il mio messaggio in un paragrafo -->
                     </div>
                 </div>
-                <div class="col-12 my-5 text-center">
+                <div class="offset-4 col-4 my-5 text-center">
                     <h1 class="pb-3">Giochiamo a dadi?</h1>
-                    <button type="button" class="btn btn-outline-primary btn-lg">Are you ready?</button>
+                    <p>Clicca il pulsante in basso e genera due numeri casuali da 1 a 6, uno per te e un per il Computer. Vince chi sceglie il numero maggiore</p>
+                    <button type="button" class="btn btn-outline-primary btn-lg" id="start-game">Are you ready?</button>
+                </div>
+                <div class="col-12">
+                    <div class="alert d-none" id="output-game-message" role="alert">
+                        <!-- Qui visualizzo il mio messaggio in un paragrafo -->
+                    </div>
                 </div>
             </div>
         </div>

@@ -28,8 +28,6 @@ const mailLists =
 'giovanni88@outlook.com', 
 'tommaso99@live.it'];
 
-//console.log(mailLists);
-
 // vado a leggere input email
 const inputEmail = document.getElementById('email-user');
 
@@ -40,15 +38,47 @@ document.getElementById('submit').addEventListener('click', function(){
     for (var i = 0; i < mailLists.length; i++){
         if (inputEmail.value == mailLists[i]){
             console.log('email presente nella lista');
-            outMessage.classList.remove('d-none');
+            outMessage.classList.remove('d-none', 'alert-warning');
             outMessage.classList.add('d-block', 'alert-success');
             outMessage.innerHTML = 'email presente nella lista';
+            return;
         }
         else{
             console.log('email non presente');
-            outMessage.classList.remove('d-none');
+            outMessage.classList.remove('d-none', 'alert-success');
             outMessage.classList.add('d-block', 'alert-warning');
             outMessage.innerHTML = 'email non presente';
         }
+    }
+});
+
+
+const outGameMessage = document.getElementById('output-game-message');
+
+// Leggo lo stato del pulsante di gioco
+const btnStartGame = document.getElementById('start-game');
+btnStartGame.addEventListener('click', function(){
+    // Genero un numero casuale da 1 a 6
+    let numberUser = Math.floor(Math.random() * 7);
+    let numberPc = Math.floor(Math.random() * 7);
+    if (numberUser > numberPc){
+        console.log('Hai vinto!');
+        outGameMessage.classList.remove('d-none', 'alert-danger', 'alert-warning');
+        outGameMessage.classList.add('d-block', 'alert-success');
+        outGameMessage.innerHTML = `Hai vinto! Il tuo numero è: ${numberUser}`;
+    }
+
+    else if (numberUser < numberPc){
+        console.log('Hai perso! Ritenta sarai piu fortunato.');
+        outGameMessage.classList.remove('d-none', 'alert-success', 'alert-warning');
+        outGameMessage.classList.add('d-block', 'alert-danger');
+        outGameMessage.innerHTML = `Hai perso! Ritenta sarai piu fortunato. Il numero del PC è: ${numberPc}`;
+    }
+
+    else if (numberUser == numberPc){
+        console.log('La scelta dell\'utente e del PC è la stessa');
+        outGameMessage.classList.remove('d-none', 'alert-success', 'alert-danger');
+        outGameMessage.classList.add('d-block', 'alert-warning');
+        outGameMessage.innerHTML = `Attenzione, la scelta dell'utente è la stessa del PC. Il numero scelto è: ${numberUser}`;
     }
 });
