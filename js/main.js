@@ -19,3 +19,36 @@
         proviamo ad immaginare le operazioni che vogliamo far svolgere al nostro programma così come lo faremmo "a mano"
         usiamo i diagrammini e i discorsi filosofici di oggi come base per costruire un nostro sistema di implementazione autonomo 
 */
+
+// Inizializzo un array con dento una lista di email
+const mailLists = 
+['cochy@gmail.com', 
+'pincopallo@libero.it', 
+'pasqualino@gmail.com', 
+'giovanni88@outlook.com', 
+'tommaso99@live.it'];
+
+//console.log(mailLists);
+
+// vado a leggere input email
+const inputEmail = document.getElementById('email-user');
+
+const outMessage = document.getElementById('output-message');
+
+// Quando su un button preso via id, ho un evento di tipo listner, esegui la funzione
+document.getElementById('submit').addEventListener('click', function(){
+    for (var i = 0; i < mailLists.length; i++){
+        if (inputEmail.value == mailLists[i]){
+            console.log('email presente nella lista');
+            outMessage.classList.remove('d-none');
+            outMessage.classList.add('d-block', 'alert-success');
+            outMessage.innerHTML = 'email presente nella lista';
+        }
+        else{
+            console.log('email non presente');
+            outMessage.classList.remove('d-none');
+            outMessage.classList.add('d-block', 'alert-warning');
+            outMessage.innerHTML = 'email non presente';
+        }
+    }
+});
