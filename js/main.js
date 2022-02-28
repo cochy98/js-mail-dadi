@@ -36,7 +36,8 @@ const outMessage = document.getElementById('output-message');
 // Quando su un button preso via id, ho un evento di tipo listner, esegui la funzione
 document.getElementById('submit').addEventListener('click', function(){
     for (var i = 0; i < mailLists.length; i++){
-        if (inputEmail.value == mailLists[i]){
+        // prendo la mail immessa nell'input, la trasformo in minuscolo, elimino gli spazi e la confronto con quelle della lista 
+        if (inputEmail.value.toLowerCase().trim() == mailLists[i]){
             console.log('email presente nella lista');
             outMessage.classList.remove('d-none', 'alert-warning');
             outMessage.classList.add('d-block', 'alert-success');
